@@ -4,6 +4,8 @@
 #include<iostream>
 #include <cmath>
 #include <vector>
+#include <random>
+#include <time.h>
 #define block_width width/40
 #define block_height height/24
 #define HONEY RGB(240,255,240)
@@ -20,6 +22,16 @@ using namespace std;
 
 const int width = 1200;
 const int height = 742;
+
+//随机数生成器,生成食物的随机x,y坐标
+//用随机设备作为生成种子
+std::random_device devseed;
+
+std::mt19937 generator(devseed());
+
+uniform_int_distribution<int> randomFoodCorrdinate_x(1,block_width);
+uniform_int_distribution<int> randomFoodCorrdinate_y(0, block_height - 1);
+
 
 class Snake {
 
@@ -209,15 +221,21 @@ public:
 		cout << '\n';
 	}
 
+	
+
+	//让Food成为Snake类的友元类
+	class Food;
 	friend class Food;
 
+	//食物类的本质就是渲染后的方格，我们可以用产生随机数的方法在坐标范围内生成食物随机数坐标
+	class Food
+	{
+
+	};
 };
 
 
-class Food
-{
 
-};
 
 //判定蛇死亡函数
 void deadJudge()
