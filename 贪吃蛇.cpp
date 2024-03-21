@@ -20,9 +20,9 @@ int main()
 		
 		
 		mysnake.autoMove();
-		mysnake.disPlaySnake();
+		//mysnake.disPlaySnakeCorrdinate();
 	
-		Sleep(500);
+		Sleep(200);
 		FlushBatchDraw();
 	}
 	EndBatchDraw();

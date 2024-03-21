@@ -95,11 +95,11 @@ public:
 		if (_kbhit())
 			userMove();
 		else
-		dircMove(m_snake[0]-m_snake[1]);	//蛇头和蛇头后面一个元素的坐标向量可以表示蛇头的朝向，这也就是蛇自动移动的方向
+			dircMove(m_snake[0] - m_snake[1]);	//蛇头和蛇头后面一个元素的坐标向量可以表示蛇头的朝向，这也就是蛇自动移动的方向
 
 
 	}
-	
+
 
 	//用户按下按键之后改变运动方向
 	//怎么融入到automove中？
@@ -202,12 +202,26 @@ public:
 
 	}
 
-	void disPlaySnake()
+	void disPlaySnakeCorrdinate()
 	{
 		for (int i = 0; i < m_snake.size(); i++)
 			cout << "(" << m_snake[i].x << "," << m_snake[i].y << ")" << " ";
 		cout << '\n';
 	}
 
+	friend class Food;
+
 };
+
+
+class Food
+{
+
+};
+
+//判定蛇死亡函数
+void deadJudge()
+{
+
+}
 
